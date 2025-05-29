@@ -2,57 +2,82 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Digital Scoring PORSENI</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- XLSX Library for export Excel -->
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
-
   <h1>Digital Scoring PORSENI</h1>
 
   <form id="formNilai">
-    <label for="inputPeserta">Nama Peserta:</label>
-    <input type="text" id="inputPeserta" required />
+    <label>
+      Nama Peserta: <br />
+      <input id="inputPeserta" type="text" required />
+    </label>
 
-    <label for="selectLomba">Pilih Lomba:</label>
-    <select id="selectLomba" required>
-      <option value="Lari 100M">Lari 100M</option>
-      <option value="Futsal">Futsal</option>
-      <option value="Catur">Catur</option>
-      <option value="Pidato">Pidato</option>
-    </select>
+    <label>
+      Pilih Lomba: <br />
+      <select id="selectLomba" required>
+        <option value="">--Pilih Lomba--</option>
+        <option value="Tari Tradisional">Tari Tradisional</option>
+        <option value="Pidato">Pidato</option>
+        <option value="Vokal Group">Vokal Group</option>
+        <!-- Tambah sesuai kebutuhan -->
+      </select>
+    </label>
 
-    <label for="inputJuri">Nama Juri:</label>
-    <input type="text" id="inputJuri" placeholder="Contoh: Juri 1" required />
+    <label>
+      Nama Juri: <br />
+      <input id="inputJuri" type="text" required />
+    </label>
 
-    <label for="nilai1">Nilai 1:</label>
-    <input type="number" id="nilai1" min="0" max="100" required />
+    <label>
+      Nilai 1: <br />
+      <input id="nilai1" type="number" min="0" max="100" step="0.01" required />
+    </label>
 
-    <label for="nilai2">Nilai 2:</label>
-    <input type="number" id="nilai2" min="0" max="100" required />
+    <label>
+      Nilai 2: <br />
+      <input id="nilai2" type="number" min="0" max="100" step="0.01" required />
+    </label>
 
-    <label for="nilai3">Nilai 3:</label>
-    <input type="number" id="nilai3" min="0" max="100" required />
+    <label>
+      Nilai 3: <br />
+      <input id="nilai3" type="number" min="0" max="100" step="0.01" required />
+    </label>
 
-    <button type="submit">✅ Simpan Nilai</button>
+    <button type="submit">Simpan Nilai</button>
   </form>
 
-  <hr/>
+  <hr />
 
-  <h2>📊 Daftar Nilai</h2>
-  <div id="daftarNilai">Belum ada data.</div>
+  <div class="filter-export">
+    <label>
+      Pilih Lomba untuk tampilkan: 
+      <select id="selectLombaDaftar" required>
+        <option value="">--Pilih Lomba--</option>
+        <option value="Tari Tradisional">Tari Tradisional</option>
+        <option value="Pidato">Pidato</option>
+        <option value="Vokal Group">Vokal Group</option>
+      </select>
+    </label>
 
-  <div style="margin-top: 2rem;">
-    <h3>📁 Ekspor Nilai</h3>
-    <button id="btnExportExcel">📥 Export per Lomba</button>
-    <button id="btnExportJuri">📥 Export per Juri</button>
-    <button id="btnExportSemua">📥 Export Semua Lomba</button>
+    <label>
+      Filter Juri (optional):
+      <input id="inputJuriFilter" type="text" placeholder="Nama juri untuk export" />
+    </label>
+
+    <button id="btnExportExcel">Export Semua Nilai Lomba Ini</button>
+    <button id="btnExportJuri">Export Nilai Per Juri</button>
+    <button id="btnExportSemua">Export Semua Lomba</button>
   </div>
 
-  <!-- SheetJS untuk Export Excel -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <section id="daftarNilai">
+    <em>Pilih lomba untuk menampilkan daftar nilai.</em>
+  </section>
 
-  <!-- Script Utama -->
   <script type="module" src="script.js"></script>
 </body>
 </html>
