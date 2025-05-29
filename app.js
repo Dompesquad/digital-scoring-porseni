@@ -1,8 +1,7 @@
-// Import Firebase SDK via CDN module imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// Firebase config - ganti dengan config Firebase kamu sendiri
+// Firebase config (ganti dengan config Firebase kamu sendiri)
 const firebaseConfig = {
   apiKey: "AIzaSyDCxWbuScND_kc4oS_WZN7s4q6CmNooNpg",
   authDomain: "digital-scoring-porseni.firebaseapp.com",
@@ -13,11 +12,11 @@ const firebaseConfig = {
   measurementId: "G-WHEDBKX2R3"
 };
 
-// Init Firebase dan Firestore
+// Inisialisasi Firebase dan Firestore
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Kriteria tiap lomba
+// Data kriteria tiap lomba
 const kriteriaMap = {
   tari: {
     teknik: 30,
@@ -32,13 +31,17 @@ const kriteriaMap = {
   }
 };
 
-// Element references
+// Ambil elemen-elemen penting
 const selectLomba = document.getElementById("selectLomba");
 const formKriteria = document.getElementById("formKriteria");
+const btnSimpan = document.getElementById("btnSimpan");
 
-// Tampilkan kriteria saat load dan saat lomba diganti
+// Tampilkan form kriteria saat load dan saat lomba berubah
 selectLomba.addEventListener("change", tampilkanKriteria);
 window.addEventListener("load", tampilkanKriteria);
+
+// Event listener tombol simpan
+btnSimpan.addEventListener("click", submitNilai);
 
 function tampilkanKriteria() {
   const lomba = selectLomba.value;
@@ -54,7 +57,7 @@ function tampilkanKriteria() {
 }
 
 async function submitNilai() {
-  alert("Fungsi submitNilai() dipanggil!");  // Debug awal
+  alert("submitNilai dipanggil!"); // Debug: pastikan fungsi jalan
 
   const lomba = selectLomba.value;
   const peserta = document.getElementById("selectPeserta").value;
@@ -64,13 +67,12 @@ async function submitNilai() {
   let total = 0;
 
   for (const key of Object.keys(kriteria)) {
-    const input = document.getElementById(`kriteria-${key}`);
-    const val = parseFloat(input.value) || 0;
+    const val = parseFloat(document.getElementById(`kriteria-${key}`).value) || 0;
     nilai[key] = val;
     total += val * (kriteria[key] / 100);
   }
 
-  const juriID = "juri1";
+  const juriID = "juri1"; // bisa diubah dinamis jika mau
 
   try {
     await setDoc(doc(db, "nilai", `${lomba}_${peserta}_${juriID}`), {
