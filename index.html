@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Scoring PORSENI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      max-width: 500px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Digital Scoring PORSENI</h1>
+
+  <label for="selectLomba">Pilih Lomba:</label>
+  <select id="selectLomba">
+    <option value="tari">Tari</option>
+    <option value="futsal">Futsal</option>
+  </select>
+
+  <label for="selectPeserta">Pilih Peserta:</label>
+  <select id="selectPeserta">
+    <option value="SMP1">SMP 1</option>
+    <option value="SMP2">SMP 2</option>
+    <option value="SMP3">SMP 3</option>
+  </select>
+
+  <form id="formKriteria"></form>
+
+  <button onclick="submitNilai()">Simpan Nilai</button>
+
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
