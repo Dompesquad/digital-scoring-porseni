@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Scoring PORSENI</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -10,23 +10,49 @@
 
   <h1>Digital Scoring PORSENI</h1>
 
-  <label for="selectLomba">Pilih Lomba:</label>
-  <select id="selectLomba">
-    <option value="tari">Tari</option>
-    <option value="futsal">Futsal</option>
-  </select>
+  <form id="formNilai">
+    <label for="inputPeserta">Nama Peserta:</label>
+    <input type="text" id="inputPeserta" required />
 
-  <label for="selectPeserta">Pilih Peserta:</label>
-  <select id="selectPeserta">
-    <option value="SMP1">SMP 1</option>
-    <option value="SMP2">SMP 2</option>
-    <option value="SMP3">SMP 3</option>
-  </select>
+    <label for="selectLomba">Pilih Lomba:</label>
+    <select id="selectLomba" required>
+      <option value="Lari 100M">Lari 100M</option>
+      <option value="Futsal">Futsal</option>
+      <option value="Catur">Catur</option>
+      <option value="Pidato">Pidato</option>
+    </select>
 
-  <form id="formKriteria"></form>
+    <label for="inputJuri">Nama Juri:</label>
+    <input type="text" id="inputJuri" placeholder="Contoh: Juri 1" required />
 
-  <button id="btnSimpan">Simpan Nilai</button>
+    <label for="nilai1">Nilai 1:</label>
+    <input type="number" id="nilai1" min="0" max="100" required />
 
-  <script type="module" src="app.js"></script>
+    <label for="nilai2">Nilai 2:</label>
+    <input type="number" id="nilai2" min="0" max="100" required />
+
+    <label for="nilai3">Nilai 3:</label>
+    <input type="number" id="nilai3" min="0" max="100" required />
+
+    <button type="submit">✅ Simpan Nilai</button>
+  </form>
+
+  <hr/>
+
+  <h2>📊 Daftar Nilai</h2>
+  <div id="daftarNilai">Belum ada data.</div>
+
+  <div style="margin-top: 2rem;">
+    <h3>📁 Ekspor Nilai</h3>
+    <button id="btnExportExcel">📥 Export per Lomba</button>
+    <button id="btnExportJuri">📥 Export per Juri</button>
+    <button id="btnExportSemua">📥 Export Semua Lomba</button>
+  </div>
+
+  <!-- SheetJS untuk Export Excel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+  <!-- Script Utama -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
