@@ -1,79 +1,36 @@
-/* Reset margin dan padding default */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body dengan font modern dan warna latar lembut */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9fafb;
-  color: #1f2937;
-  padding: 2rem;
+  font-family: sans-serif;
   max-width: 600px;
   margin: auto;
-  min-height: 100vh;
+  padding: 1rem;
+  background-color: #f9f9f9;
 }
 
-/* Header */
-h1 {
+h1, h2 {
   text-align: center;
-  margin-bottom: 1.5rem;
-  color: #2563eb;
 }
 
-/* Label styling */
-label {
+label, input, select {
   display: block;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-  color: #374151;
+  margin: 0.5rem 0;
+  width: 100%;
 }
 
-/* Select dan input styling */
-select, input[type="number"] {
-  width: 100%;
-  padding: 0.5rem 0.7rem;
-  border: 1.5px solid #d1d5db;
-  border-radius: 6px;
+input, select {
+  padding: 0.5rem;
   font-size: 1rem;
-  margin-bottom: 1.25rem;
-  transition: border-color 0.3s ease;
 }
 
-select:focus, input[type="number"]:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 5px #3b82f6aa;
-}
-
-/* Tombol */
 button {
-  width: 100%;
-  background-color: #3b82f6;
-  color: white;
-  font-size: 1.1rem;
-  padding: 0.7rem;
-  border: none;
-  border-radius: 8px;
-  font-weight: 700;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #2563eb;
-}
-
-/* Form container */
-#formKriteria {
-  margin-bottom: 1.5rem;
-}
-
-/* Responsive tweaks */
-@media (max-width: 480px) {
-  body {
-    padding: 1rem;
-  }
+#daftarNilai {
+  margin-top: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
 }
