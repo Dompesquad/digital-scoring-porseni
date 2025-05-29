@@ -1,36 +1,96 @@
 body {
-  font-family: sans-serif;
-  max-width: 600px;
-  margin: auto;
-  padding: 1rem;
-  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+  background: #f9f9f9;
+  color: #222;
 }
 
-h1, h2 {
+h1 {
   text-align: center;
+  margin-bottom: 1rem;
 }
 
-label, input, select {
+form {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #ccc;
+  display: grid;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+label {
   display: block;
-  margin: 0.5rem 0;
-  width: 100%;
+  font-weight: bold;
 }
 
-input, select {
-  padding: 0.5rem;
+input, select, button {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  margin-top: 0.2rem;
   font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  background-color: #0077cc;
+  border: none;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+hr {
+  margin: 2rem 0;
+}
+
+.filter-export {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.filter-export label {
+  flex-grow: 1;
+  min-width: 180px;
+  font-weight: normal;
 }
 
 #daftarNilai {
-  margin-top: 1rem;
   background: white;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #ccc;
+  min-height: 150px;
+}
+
+.card-nilai {
+  border-bottom: 1px solid #ddd;
+  padding: 0.6rem 0;
+}
+
+.card-nilai strong {
+  font-size: 1.1rem;
+}
+
+.card-nilai ul {
+  padding-left: 1.2rem;
+  margin: 0.4rem 0 0 0;
+}
+
+.card-nilai li {
+  font-size: 0.95rem;
+  line-height: 1.2rem;
 }
